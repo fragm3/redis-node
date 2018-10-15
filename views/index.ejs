@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Redis</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" >
+        <style>
+                .del:checked + span{
+                    color: red;
+                }
+            
+                .task-list{
+                    list-style: none;
+                }
+            </style>
+    </head>
+    <body>
+        <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Home</li>
+        </ol>
+    
+        <h3>Add Task</h3>
+        <form method="post" action="/task/add">
+            <label>
+                Add Tasks
+            </label>
+            <input type="text" name="task" placeholder="Add Task">
+            <input type="submit" value="Submit">
+        </form>
+
+        <%= title %>
+        <form method="post" action="/task/delete">
+            <ul>
+                <% tasks.forEach((data) => { %>
+                    <%console.log(data) %>
+                <li>
+                    <label>
+                        <input type="checkbox" name="tasks" class="del" value="<%= data %>">
+                        <span><%= data %></span>
+                    </label>
+                </li>
+                <% }) %>
+            </ul>
+            <input type="submit" value="Remove">
+        </form>
+
+        <h3>Next Business Call</h3>
+        Name: <%= call.name %><br>
+        Company: <%= call.company %><br>
+        Time: <%= call.time %><br>
+        Phone: <%= call.phone %><br>
+
+            <h3>Edit Next</h3>
+            <form method="post" action="/call/add">
+                <label>Contact Name</label><br>
+                <input type="text" name="name" placeholder="Task Name">
+                <br><br>
+                <label>Company</label><br>
+                <input type="text" name="company" placeholder="Company">
+                <br><br>
+                <label>Phone</label><br>
+                <input type="text" name="phone" plaeholder="Phone">
+                <br><br>
+                <label>Day And Time</label><br>
+                <input type="text" name="time" plaeholder="Time">
+                <br><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </body>
+</html>
